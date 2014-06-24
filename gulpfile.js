@@ -9,11 +9,12 @@ var less = require('gulp-less');
 var stylish = require('jshint-stylish');
 var del = require('del');
 var rename = require('gulp-rename');
+var connect = require('gulp-connect');
 
 
 var paths = {
-  scripts: 	['src/js/**/*.js'],
-  less: 	['src/less/**/*.less']
+  scripts: ['src/js/**/*.js'],
+  less:	['src/less/**/*.less']
 };
 
 
@@ -37,15 +38,31 @@ gulp.task('scripts', [], function() {
     //.pipe(coffee())
     .pipe(uglify())
     .pipe(concat('bootstrap-datetimepicker.min.js'))
+    .pipe(connect.reload())
     .pipe(gulp.dest('build/js'));
 });
 
 gulp.task('styles', [], function() {
   // Generate and minify less
-  return gulp.src(paths.less)   
-    .pipe(less({ sourceMap: false, compress: true }))    
-	.pipe(rename('bootstrap-datetimepicker.min.css'))
+  return gulp.src(paths.less)
+    .pipe(less({ sourceMap: false, compress: true }))
+    .pipe(rename('bootstrap-datetimepicker.min.css'))
+    .pipe(connect.reload())
     .pipe(gulp.dest('build/css'));
+});
+
+gulp.task('connectDev', function () {
+  connect.server({
+    port: 8000,
+    livereload: true
+  });
+});
+
+gulp.task('connectDist', function () {
+  connect.server({
+    port: 8001,
+    livereload: true
+  });
 });
 
 // Copy all static images
@@ -61,10 +78,10 @@ gulp.task('images', ['clean'], function() {
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['scripts']);
-  //gulp.watch(paths.images, ['images']);
+  gulp.watch(paths.less, ['styles']);
 });
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('build', ['clean', 'scripts','styles']);
-gulp.task('default', ['watch', 'scripts']);
-gulp.task('jshint', ['lint']); 
+gulp.task('default', ['connectDev','watch']);
+gulp.task('jshint', ['lint']);

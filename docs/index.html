@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+        <title>Bootstrap Datetimepicker Example</title>        
+    </head>
+    <body>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Seletor de data</h3>
+            </div>
+            <div class="panel-body">
+                <div data-bind="datepicker: { options: defaults.datepicker.date }" class="input-group date form-group datepicker has-success">
+                    <input type="text" readonly="readonly" class="form-control" aria-invalid="false">
+                    <span class="input-group-addon">
+                        <i class="set-date fa fa-calendar"> </i>
+                    </span>
+                </div>
+                <div data-bind="datepicker: { options: defaults.datepicker.datetime }" class="input-group date form-group datepicker">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon">
+                        <i class="fa fa-calendar"> </i>
+                    </span>
+                </div>
+                <div data-bind="datepicker: { options: defaults.datepicker.time }" class="input-group date form-group datepicker">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon">
+                        <i class="fa fa-clock-o"> </i>
+                    </span>
+                </div>
+                <div data-bind="datepicker: { options: defaults.datepicker.time }" class="input-group date form-group datepicker">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon">
+                        <i class="fa fa-clock-o"> </i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

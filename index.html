@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>        
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="build/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="src/js/locales/bootstrap-datetimepicker.pt-BR.js"></script>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="build/css/bootstrap-datetimepicker.min.css">
+        <title>Bootstrap Datetimepicker Example</title>        
+    </head>
+    <body>        
+        <div class="container">
+            <h1>Datetimepicker</h1>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Seletor de data</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="input-group date form-group date">
+                        <input type="text" readonly="readonly" class="form-control" aria-invalid="false">
+                        <span class="input-group-addon">
+                            <i class="set-date glyphicon glyphicon-calendar"> </i>
+                        </span>
+                    </div>
+                    <div class="input-group date form-group datetime">
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-calendar"> </i>
+                        </span>
+                    </div>
+                    <div class="input-group date form-group time">
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-time"> </i>
+                        </span>
+                    </div>
+                    <div class="input-group date form-group year">
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-time"> </i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">             
+            $(document).ready(function() {
+                 var options = {
+                     "datepicker": {                    
+                        "date": { format: "dd/MM/yyyy" },
+                        "datetime": { format: "dd/MM/yyyy hh:mm:ss" },
+                        "time": { format: "hh:mm:ss", pickDate: false },
+                        "year": { 
+                            format: "yyyy", 
+                            pickDate: true, 
+                            minViewMode: 2, 
+                            viewMode: 2, 
+                            pickTime: false, 
+                            startDate: new Date(1981, 10, 11, 4, 30) 
+                        }                   
+                    } 
+                }
+                $(".datetime").datetimepicker(options.datepicker.datetime);
+                $(".time").datetimepicker(options.datepicker.time);
+                $(".year").datetimepicker(options.datepicker.year);
+                $(".date").datetimepicker(options.datepicker.date);
+                // set default localization
+                //$.fn.datetimepicker.dates['pt-BR'] = defaults.datepicker.dates;
+
+            });
+        </script>
+    </body>    
+</html>
+

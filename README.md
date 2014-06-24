@@ -12,3 +12,6 @@ I've decided to do a major rewrite of the plugin. Version 1 is here in case you 
 
 #Documentation 
 For version 1 is [here](http://eonasdan.github.io/bootstrap-datetimepicker/version1/)
+
+#This Fork
+This fork updates the plugin to use latest version of bootstrap without using "moment.js".
