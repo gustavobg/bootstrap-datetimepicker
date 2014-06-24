@@ -3,7 +3,7 @@
   "version": "1.0.5",
   "repository": {
     "type": "git",
-    "url": "git://github.com/eonasdan/bootstrap-datetimepicker.git"
+    "url": "git://github.com/gustavobg/bootstrap-datetimepicker.git"
   },
   "keywords": [
     "twitter-bootstrap",
@@ -13,11 +13,14 @@
     "timepicker"
   ],
   "devDependencies": {
-    "uglify-js": "*",
-    "less": "*",
-    "mocha-phantomjs": "*",
-    "mocha": "*",
-    "chai": "*",
-    "coffee-script": "*"
+    "gulp": "~3.8.1",
+    "gulp-concat": "~2.2.0",
+    "gulp-uglify": "~0.3.1",
+    "gulp-imagemin": "~0.6.1",
+    "del": "~0.1.0",
+    "gulp-less": "~1.2.3",
+    "gulp-jshint": "~1.6.3",
+    "jshint-stylish": "~0.2.0",
+    "gulp-rename": "~1.2.0"
   }
 }

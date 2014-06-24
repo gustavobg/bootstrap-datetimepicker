@@ -77,7 +77,7 @@
                   this.upIcon = icon.data('up-icon');
                   this.downIcon = icon.data('down-icon');
                 }
-                if (!this.timeIcon) this.timeIcon = 'fa fa-time-o';
+                if (!this.timeIcon) this.timeIcon = 'fa  fa-time-o';
                 if (!this.upIcon) this.upIcon = 'fa fa-chevron-up';
                 if (!this.downIcon) this.downIcon = 'fa fa-chevron-down';
 				if (icon) icon.addClass(this.timeIcon);
