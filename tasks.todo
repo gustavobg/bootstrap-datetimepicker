@@ -1,3 +1,4 @@
 Roadmap:
   ☐ Adjust CSS to edge Bootstrap versions
   ☐ Set defaults options before initialize
+  ☐ Set sublime to invoke Node.js command prompt

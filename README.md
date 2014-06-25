@@ -1,3 +1,5 @@
+[![devDependency Status](https://david-dm.org/gustavobg/bootstrap-datetimepicker/dev-status.svg)](https://david-dm.org/gustavobg/bootstrap-datetimepicker#info=devDependencies)
+
 #Bootstrap v3 datetimepicker widget
 
 ##Version 1

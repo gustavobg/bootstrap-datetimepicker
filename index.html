@@ -4,10 +4,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>        
         <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>        
-        <script type="text/javascript" src="build/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="src/js/bootstrap-datetimepicker.js"></script>
         <script type="text/javascript" src="src/js/locales/bootstrap-datetimepicker.pt-BR.js"></script>
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="build/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
         <title>Bootstrap Datetimepicker Example</title>        
     </head>
     <body>        
@@ -40,6 +41,13 @@
                         <input type="text" class="form-control">
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-time"> </i>
+                        </span>
+                    </div>
+                    <h4>Custom icons</h4>
+                    <div class="input-group date form-group datetime" data-time-icon="fa fa-clock-o" data-date-icon="fa fa-calendar-o">
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-time"></i>
                         </span>
                     </div>
                 </div>

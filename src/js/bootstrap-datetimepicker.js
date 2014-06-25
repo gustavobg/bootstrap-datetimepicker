@@ -50,7 +50,7 @@
 			this.useMoment = (typeof moment != "undefined");
             if (!(options.pickTime || options.pickDate))
                 throw new Error('Must choose at least one picker');
-            this.options = options;
+            this.options = $.extend(true, options, $(element).data());
             this.$element = $(element);
             this.language = options.language in dates ? options.language : 'en';
             this.pickDate = options.pickDate;
@@ -72,25 +72,15 @@
             if (this.component) icon = this.component.find('span');
 			
             if (this.pickTime) {
-                if (icon && icon.length) {
-                  this.timeIcon = icon.data('time-icon');
-                  this.upIcon = icon.data('up-icon');
-                  this.downIcon = icon.data('down-icon');
-                }
-                if (!this.timeIcon) this.timeIcon = 'glyphicon glyphicon-time';
-                if (!this.upIcon) this.upIcon = 'glyphicon glyphicon-chevron-up';
-                if (!this.downIcon) this.downIcon = 'glyphicon glyphicon-chevron-down';
-				if (icon) icon.addClass(this.timeIcon);
+				if (icon) icon.addClass(options.timeIcon);
             }
             if (this.pickDate) {
-                if (icon && icon.length) this.dateIcon = icon.data('date-icon');
-                if (!this.dateIcon) this.dateIcon = 'glyphicon glyphicon-calendar';
 				if (icon) {
-					icon.removeClass(this.timeIcon);
-					icon.addClass(this.dateIcon);
+					icon.removeClass(options.timeIcon);
+					icon.addClass(options.dateIcon);
 				}
             }
-            this.widget = $(getTemplate(this.timeIcon, this.upIcon, this.downIcon, options.pickDate, options.pickTime,
+            this.widget = $(getTemplate(options.timeIcon, options.upIcon, options.downIcon, options.pickDate, options.pickTime,
                                         options.pick12HourFormat, options.pickSeconds, options.collapse)).appendTo('body');
             this.minViewMode = options.minViewMode || this.$element.data('date-minviewmode') || 0;
             if (typeof this.minViewMode === 'string') {
@@ -364,7 +354,7 @@
 
         fillDate: function () {
             var year = this.viewDate.getUTCFullYear();
-            var month = this.viewDate.getUTCMonth();          
+            var month = this.viewDate.getUTCMonth();
             var currentDate = UTCDate(
               this._date.getUTCFullYear(),
               this._date.getUTCMonth(),
@@ -984,8 +974,8 @@
                         if (collapseData && collapseData.transitioning) return;
                         expanded.collapse('hide');
                         closed.collapse('show');
-                        $this.find('span').toggleClass(self.timeIcon + ' ' + self.dateIcon);
-                        self.$element.find('.input-group-addon span').toggleClass(self.timeIcon + ' ' + self.dateIcon);
+                        $this.find('span').toggleClass(self.options.timeIcon + ' ' + self.options.dateIcon);
+                        self.$element.find('.input-group-addon span').toggleClass(self.options.timeIcon + ' ' + self.options.dateIcon);
                     }
                 });
             }
@@ -1117,7 +1107,7 @@
         });
     };
 
-    $.fn.datetimepicker.defaults = {     
+    $.fn.datetimepicker.defaults = {
         maskInput: false,
         pickDate: true,
         pickTime: true,
@@ -1126,7 +1116,11 @@
         startDate: -Infinity,
         endDate: Infinity,
         collapse: true,
-		defaultDate: ""
+		defaultDate: "",
+        timeIcon: "glyphicon glyphicon-time",
+        upIcon: "glyphicon glyphicon-chevron-up",
+        downIcon: "glyphicon glyphicon-chevron-down",
+        dateIcon: "glyphicon glyphicon-calendar"
     };
     $.fn.datetimepicker.Constructor = DateTimePicker;
     var dpgId = 0;
